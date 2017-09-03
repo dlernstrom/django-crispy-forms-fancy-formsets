@@ -2,7 +2,7 @@
 
 from django import forms
 from django.utils.safestring import mark_safe
-from django.utils.encoding import force_unicode
+from django.utils.encoding import force_text
 
 
 class ReadOnlyWidget(forms.Select):
@@ -33,4 +33,4 @@ class ReadOnlyWidget(forms.Select):
         elif self.queryset:
             value = value_from_queryset(self.queryset, value)
 
-        return mark_safe(force_unicode(value))
+        return mark_safe(force_text(value))
